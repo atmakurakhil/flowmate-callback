@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FlowMate Callback: every enquiry phoned back in under a minute</title>
+<meta name="description" content="An AI voice agent on Bolna that phones back every enquiry an Indian small business gets, in Telugu, Hindi or English, books the visit and tags the lead hot, warm or cold.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Ccircle cx=%278%27 cy=%278%27 r=%276%27 fill=%27%23FF6A2C%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0b0b; --panel: #131313; --panel2: #1a1a1a; --line: #262626;
+    --text: #f2efe9; --mute: #8f8b85; --dim: #5e5b57;
+    --ember: #FF6A2C; --amber: #E0A43A; --grey: #8a8a8a;
+    --font: "Inter", "Noto Sans Telugu", "Noto Sans Devanagari", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font); -webkit-font-smoothing: antialiased; }
+  body { line-height: 1.5; }
+  a { color: inherit; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 56px 32px 48px; }
+
+  header h1 { font-size: clamp(24px, 3.2vw, 38px); font-weight: 600; letter-spacing: -0.02em; line-height: 1.18; margin: 0 0 14px; max-width: 900px; }
+  header h1 .bolna { color: var(--ember); }
+  .note { color: var(--mute); font-size: 13.5px; margin: 0; max-width: 760px; }
+  .note b { color: var(--text); font-weight: 500; }
+
+  .stage { display: grid; grid-template-columns: 360px minmax(0, 1fr); gap: 28px; margin-top: 44px; align-items: start; }
+
+  .leads { display: flex; flex-direction: column; gap: 10px; }
+  .lead { all: unset; box-sizing: border-box; cursor: pointer; display: block; width: 100%; padding: 16px 18px; border: 1px solid var(--line); border-radius: 14px; background: var(--panel); transition: border-color .15s, background .15s; }
+  .lead:hover { border-color: #3a3a3a; }
+  .lead:focus-visible { outline: 2px solid var(--ember); outline-offset: 2px; }
+  .lead.on { border-color: var(--ember); background: #171210; }
+  .lead .row { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .lead .name { font-weight: 600; font-size: 15px; }
+  .lead .meta { color: var(--mute); font-size: 12.5px; margin-top: 3px; }
+  .lead .title { color: var(--dim); font-size: 12.5px; margin-top: 6px; }
+
+  .tag { font-size: 11px; font-weight: 700; letter-spacing: .06em; padding: 3px 8px; border-radius: 999px; white-space: nowrap; border: 1px solid currentColor; }
+  .tag.HOT { color: var(--ember); }
+  .tag.WARM { color: var(--amber); }
+  .tag.COLD { color: var(--grey); }
+  .tag.NOT_REACHED { color: var(--dim); }
+  .tag.REJECTED { color: var(--dim); border-style: dashed; }
+
+  .player { border: 1px solid var(--line); border-radius: 18px; background: var(--panel); padding: 24px; min-height: 560px; }
+  .ph { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+  .ph .who { font-size: 18px; font-weight: 600; }
+  .ph .sub { color: var(--mute); font-size: 13px; margin-top: 2px; }
+  .ph .enq { color: var(--mute); font-size: 13px; margin-top: 8px; }
+  .ph .enq span { color: var(--text); }
+  .btns { display: flex; gap: 8px; flex-wrap: wrap; }
+  .btn { all: unset; cursor: pointer; font-size: 13px; font-weight: 500; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); color: var(--text); white-space: nowrap; }
+  .btn:hover { border-color: #444; }
+  .btn:focus-visible { outline: 2px solid var(--ember); outline-offset: 2px; }
+  .btn.primary { border-color: var(--ember); color: var(--ember); }
+
+  .clock { display: inline-flex; align-items: baseline; gap: 6px; margin-top: 18px; color: var(--mute); font-size: 13px; }
+  .clock b { color: var(--ember); font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
+
+  .feed { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
+  .bubble { max-width: 82%; padding: 10px 14px; border-radius: 14px; font-size: 14.5px; line-height: 1.55; animation: in .28s ease-out both; overflow-wrap: anywhere; }
+  .bubble .lbl { display: block; font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--dim); margin-bottom: 3px; }
+  .bubble.agent { align-self: flex-start; background: var(--panel2); border: 1px solid var(--line); border-top-left-radius: 4px; }
+  .bubble.agent.first { border-color: rgba(255,106,44,.45); }
+  .bubble.caller { align-self: flex-end; background: #f2efe9; color: #141414; border-top-right-radius: 4px; }
+  .bubble.caller .lbl { color: #6d6a65; }
+  .sys { align-self: center; color: var(--mute); font-size: 12.5px; padding: 6px 12px; border: 1px dashed var(--line); border-radius: 999px; animation: in .28s ease-out both; text-align: center; max-width: 100%; overflow-wrap: anywhere; }
+  .sys code { font-family: ui-monospace, Menlo, monospace; font-size: 12px; color: var(--text); }
+
+  .card { margin-top: 18px; border: 1px solid var(--line); border-radius: 14px; padding: 18px; background: #0f0f0f; animation: in .32s ease-out both; }
+  .card h3 { margin: 0 0 12px; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--mute); font-weight: 600; display: flex; justify-content: space-between; gap: 8px; }
+  .card h3 em { font-style: normal; color: var(--dim); text-transform: none; letter-spacing: 0; font-weight: 400; }
+  .bigtag { font-size: 26px; font-weight: 700; letter-spacing: .02em; }
+  .bigtag.HOT { color: var(--ember); } .bigtag.WARM { color: var(--amber); } .bigtag.COLD { color: var(--grey); } .bigtag.NOT_REACHED, .bigtag.REJECTED { color: var(--mute); }
+  .why { margin: 10px 0 0; font-size: 15px; }
+  .why q { color: var(--text); } .why small { color: var(--mute); }
+  .owner { margin: 14px 0 0; padding: 0; list-style: none; font-size: 13.5px; color: #cfcbc4; }
+  .owner li { padding: 6px 0; border-top: 1px solid #1c1c1c; overflow-wrap: anywhere; }
+  .checks { margin-top: 14px; display: flex; flex-direction: column; gap: 6px; font-size: 13px; }
+  .ok { color: var(--mute); }
+  .ok::before { content: "✓ "; color: #7fae7f; }
+  .flag { color: var(--ember); background: rgba(255,106,44,.08); border: 1px solid rgba(255,106,44,.4); border-radius: 10px; padding: 10px 12px; font-weight: 500; }
+  .wa { background: #11201a; border: 1px solid #1f3a2e; border-radius: 12px; border-top-left-radius: 4px; padding: 12px 14px; font-size: 14px; max-width: 520px; overflow-wrap: anywhere; }
+  .wa-none { color: var(--mute); font-size: 13.5px; }
+
+  .empty { color: var(--mute); font-size: 14px; margin-top: 24px; }
+
+  .guard { margin-top: 56px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .guard h2 { grid-column: 1 / -1; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--mute); margin: 0 0 4px; font-weight: 600; }
+  .g { border-top: 1px solid var(--line); padding-top: 14px; }
+  .g b { display: block; font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .g p { margin: 0; color: var(--mute); font-size: 13.5px; }
+  .g code { font-family: ui-monospace, Menlo, monospace; font-size: 12px; color: #cfcbc4; }
+
+  footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: var(--mute); font-size: 13px; }
+  footer a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--ember); }
+
+  @keyframes in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+
+  @media (max-width: 900px) {
+    .wrap { padding: 36px 18px 36px; }
+    .stage { grid-template-columns: minmax(0, 1fr); gap: 18px; margin-top: 28px; }
+    .leads { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+    .lead { padding: 12px 13px; }
+    .lead .title { display: none; }
+    .lead .row { flex-wrap: wrap; gap: 6px; }
+    .player { padding: 16px; min-height: 0; }
+    .bubble { max-width: 92%; font-size: 14px; }
+    .guard { grid-template-columns: minmax(0, 1fr); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>FlowMate Callback: every enquiry phoned back in under a minute, in Telugu, Hindi or English. Built on <span class="bolna">Bolna</span>.</h1>
+    <p class="note">Simulated calls on a fictional clinic. Mock mode replays Bolna-shaped execution payloads; the live path uses the Bolna API. <b>Pick a lead to play its call.</b></p>
+  </header>
+
+  <main class="stage">
+    <nav class="leads" id="leads" aria-label="Six demo leads"></nav>
+    <section class="player" id="player" aria-live="polite">
+      <p class="empty">Loading the demo…</p>
+    </section>
+  </main>
+
+  <section class="guard" aria-label="Guardrails in code">
+    <h2>Guardrails in code</h2>
+    <div class="g"><b>Consent required</b><p>A lead without recorded consent is rejected before any call is placed (lead 6). Calls only 09:00 to 21:00 IST, one per number per day. <code>leads.py</code></p></div>
+    <div class="g"><b>AI disclosed in the first sentence</b><p>The greeting is built in code, not by the owner, and says "AI" in every language. Each transcript is re-checked after the call. <code>agent.py</code>, <code>analysis.py</code></p></div>
+    <div class="g"><b>No unwritten prices</b><p>The agent answers only from the owner's written profile. Any price-like number it says that isn't written down is flagged to the owner as CHECK (lead 5). <code>analysis.audit_call()</code></p></div>
+  </section>
+
+  <footer>
+    <span>FlowMate Callback v0 · Bolna Buildathon entry · nothing is sent, no real call placed</span>
+    <a href="https://github.com/atmakurakhil/flowmate-callback" target="_blank" rel="noopener">Source on GitHub</a>
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var leadsEl = document.getElementById("leads");
+  var player = document.getElementById("player");
+  var DATA = null, current = -1, timers = [], canSpeak = "speechSynthesis" in window;
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+  function tagCls(t) { return t.replace(/\s+/g, "_"); }
+  function clear() { timers.forEach(clearTimeout); timers = []; if (canSpeak) { try { speechSynthesis.cancel(); } catch (e) {} } }
+  function later(ms, fn) { timers.push(setTimeout(fn, ms)); }
+
+  function speak(text, lang) {
+    if (!canSpeak || !text) return;
+    try {
+      speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(text);
+      u.lang = lang || "en-IN";
+      var voices = speechSynthesis.getVoices() || [];
+      var base = u.lang.split("-")[0];
+      var v = voices.find(function (x) { return x.lang && x.lang.replace("_", "-") === u.lang; }) ||
+              voices.find(function (x) { return x.lang && x.lang.toLowerCase().indexOf(base) === 0; });
+      if (v) u.voice = v;
+      u.rate = 0.98;
+      speechSynthesis.speak(u);
+    } catch (e) { /* silent fallback */ }
+  }
+
+  function renderList() {
+    DATA.leads.forEach(function (l, i) {
+      var b = el("button", "lead");
+      b.type = "button";
+      b.setAttribute("aria-label", "Play lead " + (i + 1) + ": " + l.title);
+      var row = el("div", "row");
+      row.appendChild(el("span", "name", (i + 1) + ". " + (l.name || "Unknown caller")));
+      row.appendChild(el("span", "tag " + tagCls(l.tag), l.tag));
+      b.appendChild(row);
+      b.appendChild(el("div", "meta", l.channel + (l.language ? " · " + l.language : "")));
+      b.appendChild(el("div", "title", l.message ? "\u201C" + l.message + "\u201D" : l.title));
+      b.addEventListener("click", function () { play(i); });
+      leadsEl.appendChild(b);
+    });
+  }
+
+  function header(l) {
+    var ph = el("div", "ph");
+    var left = el("div");
+    left.appendChild(el("div", "who", l.name || "Unknown caller"));
+    left.appendChild(el("div", "sub", l.title));
+    if (l.message) {
+      var enq = el("div", "enq", "Enquiry: ");
+      enq.appendChild(el("span", null, "“" + l.message + "”"));
+      left.appendChild(enq);
+    }
+    ph.appendChild(left);
+    var btns = el("div", "btns");
+    if (l.greeting && canSpeak) {
+      var hb = el("button", "btn primary", "▶ Hear the greeting");
+      hb.type = "button";
+      hb.addEventListener("click", function () { speak(l.greeting, l.lang_code); });
+      btns.appendChild(hb);
+    }
+    var sk = el("button", "btn", "Show all");
+    sk.type = "button";
+    sk.addEventListener("click", function () { play(current, true); });
+    btns.appendChild(sk);
+    ph.appendChild(btns);
+    return ph;
+  }
+
+  function ownerCard(l) {
+    var c = el("div", "card");
+    var h = el("h3", null, "Owner notification");
+    h.appendChild(el("em", null, "composed, not sent"));
+    c.appendChild(h);
+    c.appendChild(el("div", "bigtag " + tagCls(l.tag), l.tag));
+    if (l.why_quote) {
+      var w = el("p", "why", "Why " + l.tag + ": ");
+      w.appendChild(el("q", null, l.why_quote));
+      w.appendChild(el("small", null, l.quote_source === "rule" ? "  (caller's words, picked by rule)" : "  (caller's words)"));
+      c.appendChild(w);
+    }
+    var ul = el("ul", "owner");
+    (l.owner_message || "").split("\n").forEach(function (line, i) {
+      if (i === 0 || !line || /^Why |^CHECK:|^Checks passed|^Transcript, recording/.test(line)) return;
+      ul.appendChild(el("li", null, line));
+    });
+    c.appendChild(ul);
+    if (l.audit) {
+      var ch = el("div", "checks");
+      if (l.audit.disclosure_ok) ch.appendChild(el("div", "ok", "Said it is an AI in the first sentence"));
+      if (l.audit.check) ch.appendChild(el("div", "flag", l.audit.check_line || ("CHECK: " + l.audit.unlisted_numbers.join("; "))));
+      else ch.appendChild(el("div", "ok", "Quoted nothing outside the owner's profile"));
+      c.appendChild(ch);
+    }
+    return c;
+  }
+
+  function waCard(l) {
+    var c = el("div", "card");
+    var h = el("h3", null, "Caller WhatsApp");
+    h.appendChild(el("em", null, "drafted, not sent"));
+    c.appendChild(h);
+    if (l.whatsapp) c.appendChild(el("div", "wa", l.whatsapp));
+    else c.appendChild(el("div", "wa-none", "No booking on this call, so no confirmation is drafted."));
+    return c;
+  }
+
+  function play(i, instant) {
+    clear();
+    current = i;
+    Array.prototype.forEach.call(leadsEl.children, function (b, j) { b.classList.toggle("on", j === i); b.setAttribute("aria-pressed", j === i ? "true" : "false"); });
+    var l = DATA.leads[i];
+    player.innerHTML = "";
+    player.appendChild(header(l));
+
+    if (l.tag === "REJECTED") {
+      var f0 = el("div", "feed");
+      f0.appendChild(el("div", "sys", "POST " + l.http.endpoint + " → " + l.http.status + " rejected"));
+      player.appendChild(f0);
+      var c = el("div", "card");
+      c.appendChild(el("h3", null, "No call placed"));
+      c.appendChild(el("div", "bigtag REJECTED", "REJECTED"));
+      c.appendChild(el("p", "why", l.http.reason || "No recorded consent."));
+      c.appendChild(el("div", "checks")).appendChild(el("div", "ok", "Consent guardrail held: the number was never dialled"));
+      player.appendChild(c);
+      return;
+    }
+
+    var clock = el("div", "clock");
+    clock.appendChild(el("span", null, "Phoned back"));
+    clock.appendChild(el("b", null, l.seconds_to_callback + "s"));
+    clock.appendChild(el("span", null, "after the enquiry, in " + l.language));
+    player.appendChild(clock);
+
+    var feed = el("div", "feed");
+    player.appendChild(feed);
+
+    var steps = [];
+    if (!l.turns.length) {
+      steps.push({ms: 900, fn: function () { feed.appendChild(el("div", "sys", "Dialling… no answer (" + (l.call_status || "no-answer") + ")")); }});
+    }
+    var tools = l.tool_calls.slice();
+    l.turns.forEach(function (t, k) {
+      // tool calls happen while the agent offers and books a slot: show them before those agent turns
+      if (t.who === "agent" && tools.length && k > 0 && /\d/.test(t.text) && k >= l.turns.length - 6) {
+        var tc = tools.shift();
+        steps.push({ms: 700, fn: function () {
+          var s = el("div", "sys");
+          s.appendChild(document.createTextNode("tool call "));
+          s.appendChild(el("code", null, tc.tool));
+          var r = tc.response || {};
+          s.appendChild(document.createTextNode(" → " + (Array.isArray(r.spoken) ? r.spoken.join(", ") : (r.booked ? "booked " + r.spoken : (r.message || "")))));
+          feed.appendChild(s);
+        }});
+      }
+      steps.push({ms: Math.min(1200, 420 + t.text.length * 7), fn: function () {
+        var b = el("div", "bubble " + t.who + (k === 0 && t.who === "agent" ? " first" : ""));
+        b.lang = (l.lang_code || "en-IN").split("-")[0];
+        b.appendChild(el("span", "lbl", t.who === "agent" ? (k === 0 ? "AI agent · first sentence" : "AI agent") : "Caller"));
+        b.appendChild(document.createTextNode(t.text));
+        feed.appendChild(b);
+      }});
+    });
+    steps.push({ms: 900, fn: function () { player.appendChild(ownerCard(l)); }});
+    steps.push({ms: 0, fn: function () { player.appendChild(waCard(l)); }});
+
+    if (instant) { steps.forEach(function (s) { s.fn(); }); return; }
+    var at = 250;
+    steps.forEach(function (s) { later(at, s.fn); at += s.ms; });
+  }
+
+  fetch("data.json").then(function (r) { return r.json(); }).then(function (d) {
+    DATA = d;
+    renderList();
+    var q = parseInt(new URLSearchParams(location.search).get("lead"), 10);
+    play(q >= 1 && q <= d.leads.length ? q - 1 : 0, new URLSearchParams(location.search).has("instant"));
+  }).catch(function () {
+    player.innerHTML = "";
+    player.appendChild(el("p", "empty", "Could not load data.json."));
+  });
+  if (canSpeak) { try { speechSynthesis.getVoices(); speechSynthesis.onvoiceschanged = function () {}; } catch (e) {} }
+})();
+</script>
+</body>
+</html>

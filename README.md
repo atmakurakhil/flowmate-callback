@@ -11,6 +11,8 @@ After the call, the owner gets a transcript, a three-line summary, and a hot, wa
 
 v0 composes messages but never sends them. Mock mode runs the whole flow with no Bolna key.
 
+**Live demo:** [flowmate-callback.vercel.app](https://flowmate-callback.vercel.app) (six simulated calls on a fictional clinic). **Pitch deck:** [deck/deck.html](deck/deck.html).
+
 This is the FlowMate entry for the Bolna Buildathon (submissions close 2026-10-31). The research behind every Bolna field used here is in [docs/RESEARCH.md](docs/RESEARCH.md).
 
 ## The three guardrails, and where the code enforces them

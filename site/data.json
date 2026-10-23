@@ -1,0 +1,452 @@
+{
+  "business": "Neelagiri Dental Studio (fictional)",
+  "clock": "Mon 19 Oct 2026 10:02 IST",
+  "mode": "mock",
+  "leads": [
+    {
+      "id": "1-form-ravi-telugu",
+      "label": "1. Website form, Telugu, tooth pain (expected HOT, books a slot)",
+      "title": "Website form, Telugu, tooth pain",
+      "http": {
+        "endpoint": "/leads/form",
+        "status": 202,
+        "result": "calling",
+        "reason": null
+      },
+      "name": "Ravi Teja",
+      "channel": "Website form",
+      "language": "Telugu",
+      "lang_code": "te-IN",
+      "message": "Tooth pain since 2 days, need appointment",
+      "tag": "HOT",
+      "greeting": "నమస్కారం Ravi గారు, నేను నీలగిరి డెంటల్ స్టూడియో నుండి AI అసిస్టెంట్‌ని, మీరు ఇప్పుడే పంపిన ఎంక్వైరీ గురించి కాల్ చేస్తున్నాను. మీకు రెండు నిమిషాలు వీలుందా?",
+      "turns": [
+        {
+          "who": "agent",
+          "text": "నమస్కారం Ravi గారు, నేను నీలగిరి డెంటల్ స్టూడియో నుండి AI అసిస్టెంట్‌ని, మీరు ఇప్పుడే పంపిన ఎంక్వైరీ గురించి కాల్ చేస్తున్నాను. మీకు రెండు నిమిషాలు వీలుందా?"
+        },
+        {
+          "who": "caller",
+          "text": "హా చెప్పండి, వీలుంది."
+        },
+        {
+          "who": "agent",
+          "text": "ధన్యవాదాలు. మీరు ఏ సమస్య కోసం చూపించుకోవాలనుకుంటున్నారు, లేదా ఏ ట్రీట్మెంట్ కావాలి?"
+        },
+        {
+          "who": "caller",
+          "text": "కింద ఎడమ వైపు పన్ను రెండు రోజులుగా బాగా నొప్పిగా ఉంది."
+        },
+        {
+          "who": "agent",
+          "text": "అర్థమైంది. ఇప్పుడు నొప్పి లేదా వాపు ఉందా, లేక ఇది రెగ్యులర్ చెకప్ ఆ?"
+        },
+        {
+          "who": "caller",
+          "text": "వాపు లేదు, కానీ నొప్పి వల్ల రాత్రి నిద్ర పట్టట్లేదు."
+        },
+        {
+          "who": "agent",
+          "text": "మీరు ఇంతకు ముందు మా క్లినిక్‌కి వచ్చారా?"
+        },
+        {
+          "who": "caller",
+          "text": "లేదు, ఇదే మొదటిసారి."
+        },
+        {
+          "who": "agent",
+          "text": "సరే. మీకు ఏ రోజు వీలవుతుంది?"
+        },
+        {
+          "who": "caller",
+          "text": "రేపు పొద్దున్నే వీలైతే బాగుంటుంది."
+        },
+        {
+          "who": "agent",
+          "text": "రేపు మంగళవారం ఉదయం 10 గంటలకు, 10:30 కి, లేదా 11 గంటలకు ఖాళీ ఉంది. ఏది కావాలి?"
+        },
+        {
+          "who": "caller",
+          "text": "11 గంటలకు బుక్ చేయండి."
+        },
+        {
+          "who": "agent",
+          "text": "సరే Ravi గారు, మంగళవారం 20 అక్టోబర్ ఉదయం 11 గంటలకు మీ అపాయింట్‌మెంట్ బుక్ అయింది. WhatsApp లో కన్ఫర్మేషన్ వస్తుంది."
+        },
+        {
+          "who": "caller",
+          "text": "థాంక్యూ."
+        },
+        {
+          "who": "agent",
+          "text": "మీ సమయానికి ధన్యవాదాలు. ఉంటాను."
+        }
+      ],
+      "tool_calls": [
+        {
+          "tool": "check_slots",
+          "args": {
+            "date": "2026-10-20",
+            "lead_id": "4a7df1a6-ee4d-4d10-af95-4b89593ed7da"
+          },
+          "response": {
+            "slots": [
+              "2026-10-20T10:00",
+              "2026-10-20T10:30",
+              "2026-10-20T11:00"
+            ],
+            "spoken": [
+              "Tuesday 20 October, 10:00 AM",
+              "Tuesday 20 October, 10:30 AM",
+              "Tuesday 20 October, 11:00 AM"
+            ],
+            "message": "Offer only these times."
+          }
+        },
+        {
+          "tool": "book_slot",
+          "args": {
+            "slot_start": "2026-10-20T11:00",
+            "patient_name": "Ravi Teja",
+            "lead_id": "4a7df1a6-ee4d-4d10-af95-4b89593ed7da"
+          },
+          "response": {
+            "booked": true,
+            "slot": "2026-10-20T11:00",
+            "spoken": "Tuesday 20 October, 11:00 AM",
+            "message": "Booked. Read back the day and time, and say a WhatsApp confirmation will follow."
+          }
+        }
+      ],
+      "why_quote": "11 గంటలకు బుక్ చేయండి.",
+      "quote_source": "extraction_verified",
+      "summary": [
+        "Ravi Teja (+919000000001), via website form, call in Telugu, 1:36. Concern: Lower left tooth pain for two days",
+        "Urgency: Pain, no swelling, cannot sleep at night · Visited Before: No, first visit",
+        "Booked Tuesday 20 October, 11:00 AM. Tag HOT."
+      ],
+      "owner_message": "[HOT] Ravi Teja +919000000001\nCalled back 7s after the enquiry, in Telugu.\n1. Ravi Teja (+919000000001), via website form, call in Telugu, 1:36. Concern: Lower left tooth pain for two days\n2. Urgency: Pain, no swelling, cannot sleep at night · Visited Before: No, first visit\n3. Booked Tuesday 20 October, 11:00 AM. Tag HOT.\nWhy HOT: \"11 గంటలకు బుక్ చేయండి.\" (caller's words)\nChecks passed: said it is an AI first; quoted nothing outside your profile.\nTranscript, recording and drafts: https://mock.flowmate.local/leads/4a7df1a6-ee4d-4d10-af95-4b89593ed7da (owner token required)",
+      "whatsapp": "నమస్కారం Ravi, Neelagiri Dental Studio లో మీ అపాయింట్‌మెంట్ మంగళవారం 20 అక్టోబర్, 11:00 AM కి కన్ఫర్మ్ అయింది. చిరునామా: Demo Lane, Kondapur, Hyderabad (fictional address). మార్చడానికి: https://example.com/neelagiri-dental-fictional/book. ఈ మెసేజ్ క్లినిక్ AI అసిస్టెంట్ పంపింది.",
+      "audit": {
+        "disclosure_ok": true,
+        "unlisted_numbers": [],
+        "notes": [],
+        "check": false,
+        "check_line": null
+      },
+      "seconds_to_callback": 7,
+      "duration_s": 96,
+      "call_status": "completed"
+    },
+    {
+      "id": "2-form-pooja-hindi",
+      "label": "2. Website form, Hindi, price question (expected WARM)",
+      "title": "Website form, Hindi, price question",
+      "http": {
+        "endpoint": "/leads/form",
+        "status": 202,
+        "result": "calling",
+        "reason": null
+      },
+      "name": "Pooja Sharma",
+      "channel": "Website form",
+      "language": "Hindi",
+      "lang_code": "hi-IN",
+      "message": "Teeth cleaning price?",
+      "tag": "WARM",
+      "greeting": "नमस्ते Pooja, मैं नीलगिरि डेंटल स्टूडियो की AI असिस्टेंट हूँ, आपकी अभी भेजी गई पूछताछ के बारे में कॉल कर रही हूँ। क्या आपके पास दो मिनट हैं?",
+      "turns": [
+        {
+          "who": "agent",
+          "text": "नमस्ते Pooja, मैं नीलगिरि डेंटल स्टूडियो की AI असिस्टेंट हूँ, आपकी अभी भेजी गई पूछताछ के बारे में कॉल कर रही हूँ। क्या आपके पास दो मिनट हैं?"
+        },
+        {
+          "who": "caller",
+          "text": "हाँ बोलिए।"
+        },
+        {
+          "who": "agent",
+          "text": "आप किस चीज़ के लिए दिखाना चाहते हैं, या कौन सा इलाज करवाना चाहते हैं?"
+        },
+        {
+          "who": "caller",
+          "text": "दाँतों की सफ़ाई करवानी है, उसका कितना लगेगा?"
+        },
+        {
+          "who": "agent",
+          "text": "स्केलिंग और पॉलिशिंग ₹1,200 है।"
+        },
+        {
+          "who": "caller",
+          "text": "और अगर कैविटी निकली तो फिलिंग का कितना?"
+        },
+        {
+          "who": "agent",
+          "text": "टूथ-कलर्ड फिलिंग ₹1,500 प्रति दाँत है।"
+        },
+        {
+          "who": "agent",
+          "text": "क्या अभी दर्द या सूजन है, या यह रूटीन चेक-अप है?"
+        },
+        {
+          "who": "caller",
+          "text": "नहीं, दर्द नहीं है, बस रूटीन है।"
+        },
+        {
+          "who": "agent",
+          "text": "क्या आप पहले हमारे क्लिनिक आ चुके हैं?"
+        },
+        {
+          "who": "caller",
+          "text": "नहीं।"
+        },
+        {
+          "who": "agent",
+          "text": "क्या मैं आपके लिए कोई समय बुक कर दूँ?"
+        },
+        {
+          "who": "caller",
+          "text": "अभी नहीं, मैं पति से बात करके बताती हूँ।"
+        },
+        {
+          "who": "agent",
+          "text": "बिल्कुल। क्या क्लिनिक आपको WhatsApp पर जानकारी भेज सकता है?"
+        },
+        {
+          "who": "caller",
+          "text": "हाँ, भेज दीजिए।"
+        },
+        {
+          "who": "agent",
+          "text": "आपके समय के लिए धन्यवाद। नमस्ते।"
+        }
+      ],
+      "tool_calls": [],
+      "why_quote": "अभी नहीं, मैं पति से बात करके बताती हूँ।",
+      "quote_source": "extraction_verified",
+      "summary": [
+        "Pooja Sharma (+919000000002), via website form, call in Hindi, 1:21. Concern: Teeth cleaning; asked filling price",
+        "Urgency: No pain, routine visit · Visited Before: No",
+        "No booking yet; follow up. Tag WARM."
+      ],
+      "owner_message": "[WARM] Pooja Sharma +919000000002\nCalled back 9s after the enquiry, in Hindi.\n1. Pooja Sharma (+919000000002), via website form, call in Hindi, 1:21. Concern: Teeth cleaning; asked filling price\n2. Urgency: No pain, routine visit · Visited Before: No\n3. No booking yet; follow up. Tag WARM.\nWhy WARM: \"अभी नहीं, मैं पति से बात करके बताती हूँ।\" (caller's words)\nChecks passed: said it is an AI first; quoted nothing outside your profile.\nTranscript, recording and drafts: https://mock.flowmate.local/leads/c8b3981a-6076-4416-8096-5ead819f170f (owner token required)",
+      "whatsapp": null,
+      "audit": {
+        "disclosure_ok": true,
+        "unlisted_numbers": [],
+        "notes": [],
+        "check": false,
+        "check_line": null
+      },
+      "seconds_to_callback": 9,
+      "duration_s": 81,
+      "call_status": "completed"
+    },
+    {
+      "id": "3-ad-arjun-english",
+      "label": "3. Ad lead, English, wants a service not offered (expected COLD)",
+      "title": "Ad lead, English, wants a service not offered",
+      "http": {
+        "endpoint": "/leads/form",
+        "status": 202,
+        "result": "calling",
+        "reason": null
+      },
+      "name": "Arjun Mehta",
+      "channel": "Ad lead",
+      "language": "English",
+      "lang_code": "en-IN",
+      "message": "Whitening before a wedding",
+      "tag": "COLD",
+      "greeting": "Hello Arjun, I'm an AI assistant calling from Neelagiri Dental Studio about the enquiry you just sent us. Is this a good time for two minutes?",
+      "turns": [
+        {
+          "who": "agent",
+          "text": "Hello Arjun, I'm an AI assistant calling from Neelagiri Dental Studio about the enquiry you just sent us. Is this a good time for two minutes?"
+        },
+        {
+          "who": "caller",
+          "text": "Yeah, quickly."
+        },
+        {
+          "who": "agent",
+          "text": "What would you like to get checked or treated?"
+        },
+        {
+          "who": "caller",
+          "text": "I wanted teeth whitening before my sister's wedding."
+        },
+        {
+          "who": "agent",
+          "text": "I'm sorry, the clinic does not offer teeth whitening."
+        },
+        {
+          "who": "caller",
+          "text": "Oh. Then I'm not interested, thanks."
+        },
+        {
+          "who": "agent",
+          "text": "Understood. Thank you for your time. Goodbye."
+        }
+      ],
+      "tool_calls": [],
+      "why_quote": "Oh. Then I'm not interested, thanks.",
+      "quote_source": "rule",
+      "summary": [
+        "Arjun Mehta (+919000000003), via ad form, call in English, 0:38. Concern: Teeth whitening",
+        "Urgency: not captured · Visited Before: not captured",
+        "Not interested. Tag COLD."
+      ],
+      "owner_message": "[COLD] Arjun Mehta +919000000003\nCalled back 6s after the enquiry, in English.\n1. Arjun Mehta (+919000000003), via ad form, call in English, 0:38. Concern: Teeth whitening\n2. Urgency: not captured · Visited Before: not captured\n3. Not interested. Tag COLD.\nWhy COLD: \"Oh. Then I'm not interested, thanks.\" (caller's words, picked by rule)\nChecks passed: said it is an AI first; quoted nothing outside your profile.\nTranscript, recording and drafts: https://mock.flowmate.local/leads/d845c2e0-ece8-47a7-bd01-49c138e116d6 (owner token required)",
+      "whatsapp": null,
+      "audit": {
+        "disclosure_ok": true,
+        "unlisted_numbers": [],
+        "notes": [],
+        "check": false,
+        "check_line": null
+      },
+      "seconds_to_callback": 6,
+      "duration_s": 38,
+      "call_status": "completed"
+    },
+    {
+      "id": "4-missed-call-lakshmi",
+      "label": "4. Missed call, no answer on callback (expected NOT REACHED)",
+      "title": "Missed call, no answer on callback",
+      "http": {
+        "endpoint": "/leads/form",
+        "status": 202,
+        "result": "calling",
+        "reason": null
+      },
+      "name": null,
+      "channel": "Missed call",
+      "language": "Telugu",
+      "lang_code": "te-IN",
+      "message": null,
+      "tag": "NOT REACHED",
+      "greeting": "నమస్కారం, నేను నీలగిరి డెంటల్ స్టూడియో నుండి AI అసిస్టెంట్‌ని, మీరు మాకు కాల్ చేశారు, మేము ఎత్తలేకపోయాం, అందుకే కాల్ చేస్తున్నాను. మీకు రెండు నిమిషాలు వీలుందా?",
+      "turns": [],
+      "tool_calls": [],
+      "why_quote": null,
+      "quote_source": null,
+      "summary": [
+        "Caller (+919000000004) contacted you by missed call.",
+        "Not reached: no answer (no_answer).",
+        "Next: up to 2 automatic retries, 5 and 30 minutes later. If those miss too, call them yourself."
+      ],
+      "owner_message": "[NOT REACHED] New lead +919000000004\nCalled back 8s after the enquiry, in Telugu.\n1. Caller (+919000000004) contacted you by missed call.\n2. Not reached: no answer (no_answer).\n3. Next: up to 2 automatic retries, 5 and 30 minutes later. If those miss too, call them yourself.\nTranscript, recording and drafts: https://mock.flowmate.local/leads/4f4c5282-2dd2-46c2-bfeb-307dff7a37b6 (owner token required)",
+      "whatsapp": null,
+      "audit": null,
+      "seconds_to_callback": 8,
+      "duration_s": 0,
+      "call_status": "no-answer"
+    },
+    {
+      "id": "5-calcom-sameer-english",
+      "label": "5. Cal.com booking, English; the agent quotes a price that is NOT in the profile (expected HOT + audit flag)",
+      "title": "Cal.com booking, English; the agent quotes a price that is NOT in the profile",
+      "http": {
+        "endpoint": "/leads/calcom",
+        "status": 202,
+        "result": "calling",
+        "reason": null
+      },
+      "name": "Sameer Khan",
+      "channel": "Cal.com booking",
+      "language": "English",
+      "lang_code": "en-IN",
+      "message": "Check-up, I may need a root canal",
+      "tag": "HOT",
+      "greeting": "Hello Sameer, I'm an AI assistant calling from Neelagiri Dental Studio about the appointment you just booked online. Is this a good time for two minutes?",
+      "turns": [
+        {
+          "who": "agent",
+          "text": "Hello Sameer, I'm an AI assistant calling from Neelagiri Dental Studio about the appointment you just booked online. Is this a good time for two minutes?"
+        },
+        {
+          "who": "caller",
+          "text": "Sure, go ahead."
+        },
+        {
+          "who": "agent",
+          "text": "What would you like to get checked or treated?"
+        },
+        {
+          "who": "caller",
+          "text": "My dentist said I might need a root canal, how much does that cost here?"
+        },
+        {
+          "who": "agent",
+          "text": "A root canal is ₹4,000."
+        },
+        {
+          "who": "caller",
+          "text": "Okay. I'm keeping the Saturday slot I booked, I'll come then."
+        },
+        {
+          "who": "agent",
+          "text": "Have you visited our clinic before?"
+        },
+        {
+          "who": "caller",
+          "text": "No, first time."
+        },
+        {
+          "who": "agent",
+          "text": "Thank you. See you on Saturday."
+        }
+      ],
+      "tool_calls": [],
+      "why_quote": "I'm keeping the Saturday slot I booked, I'll come then.",
+      "quote_source": "extraction_verified",
+      "summary": [
+        "Sameer Khan (+919000000005), via online booking, call in English, 0:57. Concern: Check-up; may need a root canal",
+        "Urgency: not captured · Visited Before: No, first time",
+        "Has an online booking for Saturday 24 October, 4:30 PM. Tag HOT."
+      ],
+      "owner_message": "[HOT] Sameer Khan +919000000005\nCalled back 10s after the enquiry, in English.\n1. Sameer Khan (+919000000005), via online booking, call in English, 0:57. Concern: Check-up; may need a root canal\n2. Urgency: not captured · Visited Before: No, first time\n3. Has an online booking for Saturday 24 October, 4:30 PM. Tag HOT.\nWhy HOT: \"I'm keeping the Saturday slot I booked, I'll come then.\" (caller's words)\nCHECK: the agent said a number that is not in your profile: \"A root canal is ₹4,000.\". Correct it with the caller.\nTranscript, recording and drafts: https://mock.flowmate.local/leads/8e632961-13f2-4966-8cad-4837c8d16212 (owner token required)",
+      "whatsapp": "Hi Sameer, your appointment at Neelagiri Dental Studio is confirmed for Saturday 24 October, 4:30 PM. Address: Demo Lane, Kondapur, Hyderabad (fictional address). To change it: https://example.com/neelagiri-dental-fictional/book. Sent by the clinic's AI assistant.",
+      "audit": {
+        "disclosure_ok": true,
+        "unlisted_numbers": [
+          "A root canal is ₹4,000."
+        ],
+        "notes": [
+          "Agent said a number that is not in your profile."
+        ],
+        "check": true,
+        "check_line": "CHECK: the agent said a number that is not in your profile: \"A root canal is ₹4,000.\". Correct it with the caller."
+      },
+      "seconds_to_callback": 10,
+      "duration_s": 57,
+      "call_status": "completed"
+    },
+    {
+      "id": "6-form-no-consent",
+      "label": "6. Website form WITHOUT consent (expected REJECTED, no call)",
+      "title": "Website form WITHOUT consent",
+      "http": {
+        "endpoint": "/leads/form",
+        "status": 422,
+        "result": "rejected",
+        "reason": "consent object is required; this lead will not be called"
+      },
+      "name": "Kiran",
+      "channel": "Website form",
+      "language": null,
+      "lang_code": null,
+      "message": "Braces cost?",
+      "tag": "REJECTED",
+      "greeting": null,
+      "turns": [],
+      "tool_calls": [],
+      "why_quote": null,
+      "owner_message": null,
+      "whatsapp": null,
+      "audit": null,
+      "seconds_to_callback": null
+    }
+  ]
+}

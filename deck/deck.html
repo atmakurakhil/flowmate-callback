@@ -1,0 +1,77 @@
+<!doctype html><html><head><meta charset="utf-8"><title>FlowMate Callback — pitch</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+Telugu:wght@500&family=Noto+Sans+Devanagari:wght@500&display=swap" rel="stylesheet">
+<style>
+@page{size:1920px 1080px;margin:0}
+*{box-sizing:border-box;margin:0}
+body{background:#0b0b0b;color:#f2efe9;font-family:Inter,'Noto Sans Telugu','Noto Sans Devanagari',sans-serif}
+.s{width:1920px;height:1080px;padding:120px 150px;position:relative;page-break-after:always;overflow:hidden;
+ background:radial-gradient(circle at 88% 85%,rgba(255,106,44,.18),transparent 38%),#0b0b0b}
+.s:after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,106,44,.22) 1.4px,transparent 1.6px);background-size:22px 22px;
+ -webkit-mask:radial-gradient(circle at 92% 92%,#000 0,transparent 30%);mask:radial-gradient(circle at 92% 92%,#000 0,transparent 30%)}
+.k{color:#FF6A2C;font-size:26px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;margin-bottom:40px}
+h1{font-size:112px;line-height:1.02;font-weight:700;letter-spacing:-.03em;max-width:1500px}
+h2{font-size:76px;line-height:1.08;font-weight:700;letter-spacing:-.02em;max-width:1550px;margin-bottom:56px}
+p,li{font-size:38px;line-height:1.45;color:#cfcac2;max-width:1500px}
+ul{list-style:none;padding:0}li{margin:0 0 26px;padding-left:44px;position:relative}
+li:before{content:"";position:absolute;left:0;top:22px;width:18px;height:3px;background:#FF6A2C}
+em{font-style:normal;color:#FF6A2C}
+.foot{position:absolute;bottom:70px;left:150px;font-size:24px;color:#77726b;letter-spacing:.08em}
+.row{display:flex;gap:28px;margin-top:20px}.c{flex:1;border:1px solid #2a2724;border-radius:18px;padding:36px}
+.c b{display:block;font-size:30px;color:#f2efe9;margin-bottom:14px}.c span{font-size:28px;color:#a9a39a;line-height:1.4}
+.tag{display:inline-block;padding:6px 18px;border-radius:99px;font-size:26px;font-weight:700;margin-right:12px}
+.q{font-size:44px;color:#f2efe9;line-height:1.4;border-left:4px solid #FF6A2C;padding-left:36px;margin:30px 0}
+.t li{font-size:33px;margin-bottom:18px}.t h2{margin-bottom:40px}</style></head><body>
+
+<section class="s"><div class="k">Bolna Buildathon · FlowMate</div>
+<h1>Every enquiry, phoned back in <em>under a minute.</em></h1>
+<p style="margin-top:56px">An AI voice agent on Bolna for Indian small businesses. Telugu, Hindi or English. It answers, qualifies, books, and tells the owner who is hot.</p>
+<div class="foot">FLOWMATE CALLBACK · github.com/atmakurakhil/flowmate-callback</div></section>
+
+<section class="s"><div class="k">The problem</div>
+<h2>A clinic gets the enquiry at 10:00. It calls back at 4. The patient booked elsewhere at 10:20.</h2>
+<ul><li>Leads arrive by website form, Meta ad, missed call and online booking, all day.</li>
+<li>Front desks are busy with the people in the room, so the phone waits.</li>
+<li>Speed is the whole game: FlowMate's text version took a US EdTech client from <em>36 hours to 4 minutes</em> response time, and three deals closed in the first two weeks off that change alone.</li></ul>
+<div class="foot">FLOWMATE CALLBACK</div></section>
+
+<section class="s"><div class="k">How it works</div>
+<h2>Enquiry in. Call out. Owner informed.</h2>
+<div class="row">
+<div class="c"><b>1 · Lead lands</b><span>Form, Meta lead ad, missed call or Cal.com booking hits the server. No consent, no call.</span></div>
+<div class="c"><b>2 · Bolna calls</b><span>Within a minute, in the caller's language. First sentence says it is an AI.</span></div>
+<div class="c"><b>3 · Qualify + book</b><span>Answers only from the owner's written details. Two or three questions. Books a real open slot via tools.</span></div>
+<div class="c"><b>4 · Owner gets it</b><span>Transcript, 3-line summary, HOT / WARM / COLD with the caller's own words, WhatsApp confirmation drafted.</span></div>
+</div>
+<p class="q" style="font-family:'Noto Sans Telugu'">"నమస్కారం Ravi గారు, నేను నీలగిరి డెంటల్ స్టూడియో నుండి AI అసిస్టెంట్‌ని…"</p>
+<p style="font-size:30px">Ravi, tooth pain, Telugu → called back in 7 seconds → booked Tuesday 11:00 → <span class="tag" style="background:#FF6A2C;color:#0b0b0b">HOT</span></p>
+<div class="foot">FICTIONAL CLINIC · MOCK MODE REPLAYS BOLNA-SHAPED CALLS</div></section>
+
+<section class="s t"><div class="k">Trust, in code</div>
+<h2>A voice agent that cannot make things up about your business.</h2>
+<ul><li><em>Consent or no call.</em> A lead without recorded consent is rejected (HTTP 422) before any dial.</li>
+<li><em>It says it is an AI</em> in the first sentence, in every language. Tested for every combination, then re-checked on the transcript after each call.</li>
+<li><em>No invented prices.</em> Facts come only from the owner's profile; a post-call audit flags any number the agent said that the owner never wrote, so the owner can correct it.</li>
+<li>One call per number per 24 hours, 09:00–21:00 IST only. Live mode dials only an allowlist.</li></ul>
+<div class="foot">52 TESTS PASS</div></section>
+
+<section class="s"><div class="k">Built on</div>
+<h2>Bolna end to end.</h2>
+<ul><li>Bolna agent API: agent JSON built in code, per-language prompts, <em>check_slots / book_slot</em> tools mid-call, extractions for name, concern, urgency.</li>
+<li>Sarvam bulbul voices and transcription for Telugu, Hindi and English; Bolna telephony on its default +91 number for trials.</li>
+<li>FastAPI + SQLite server: webhooks verified by Bolna source IP and URL token, then the call is re-read from the API.</li>
+<li>Meta lead-ad webhook (signature checked) and Cal.com bookings in; a WhatsApp follow-up sequence and a weekly owner report out.</li></ul>
+<div class="foot">FLOWMATE CALLBACK</div></section>
+
+<section class="s"><div class="k">Who pays</div>
+<h2>Clinics first. Then anyone whose phone rings while they're busy.</h2>
+<ul><li>First users: businesses that already sent FlowMate service requests, a clinic, a hotel and a travel company.</li>
+<li>Sold as setup plus a monthly fee, per business, by FlowMate.</li>
+<li>Next: live calls on each client's own number, WhatsApp sending through an approved template, Google Calendar sync, a native speaker review of every prompt.</li></ul>
+<div class="foot">FLOWMATE CALLBACK</div></section>
+
+<section class="s"><div class="k">Builder</div>
+<h2>Atmakur Sai Akhil Reddy</h2>
+<p>Founder of FlowMate, an AI automation agency in Hyderabad. Won the <em>Agents, Everywhere</em> hackathon at OpenAI with Flow. Builds lead-response systems for founders.</p>
+<p style="margin-top:60px;color:#f2efe9">Code · github.com/atmakurakhil/flowmate-callback<br>Demo · flowmate-callback.vercel.app<br>linkedin.com/in/atmakurakhil</p>
+<div class="foot">THANK YOU</div></section>
+</body></html>
