@@ -1,0 +1,17 @@
+{
+  "fictional": true,
+  "notice": "Fictional dermatology clinic profile for mock demonstrations.",
+  "business": {"name": "Glow Dermatology Clinic", "city": "Hyderabad", "address": "Banjara Hills, Hyderabad", "timezone": "Asia/Kolkata"},
+  "languages": ["en", "hi", "te"], "default_language": "en",
+  "hours": {"mon": [["09:00", "18:00"]], "tue": [["09:00", "18:00"]], "wed": [["09:00", "18:00"]], "thu": [["09:00", "18:00"]], "fri": [["09:00", "18:00"]], "sat": [["09:00", "13:00"]], "sun": []},
+  "calling_window": {"start_hour": 9, "end_hour": 21},
+  "services": [
+    {"name": "acne consult"}, {"name": "hair-fall consult"}, {"name": "laser hair removal"}, {"name": "chemical peel"}
+  ],
+  "not_offered": [], "faq": [],
+  "booking": {"slot_minutes": 30, "days_ahead": 6, "min_notice_minutes": 60},
+  "qualifying_questions": [
+    {"id": "service", "label": "Service", "text": {"en": "Which service are you enquiring about?", "hi": "आप किस सेवा के बारे में पूछ रहे हैं?", "te": "మీరు ఏ సేవ గురించి అడుగుతున్నారు?"}},
+    {"id": "time", "label": "Timing", "text": {"en": "When would you like to visit?", "hi": "आप कब आना चाहेंगे?", "te": "మీరు ఎప్పుడు రావాలనుకుంటున్నారు?"}}
+  ]
+}

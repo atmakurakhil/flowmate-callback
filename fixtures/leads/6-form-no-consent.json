@@ -1,0 +1,12 @@
+{
+  "label": "6. Website form WITHOUT consent (expected REJECTED, no call)",
+  "endpoint": "/leads/form",
+  "_notice": "FICTIONAL test lead. Name and number are invented; live mode refuses to call fixture numbers.",
+  "body": {
+    "source": "website_form",
+    "external_id": "form-0006",
+    "name": "Kiran",
+    "phone": "+919000000006",
+    "message": "Braces cost?"
+  }
+}

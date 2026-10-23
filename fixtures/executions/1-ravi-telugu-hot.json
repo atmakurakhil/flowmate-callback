@@ -1,0 +1,95 @@
+{
+  "_notice": "FICTIONAL call. Shaped like a Bolna execution payload (execution payload reference, docs read 2026-10-17). {greeting} is replaced by the greeting FlowMate actually sent.",
+  "match_phone": "+919000000001",
+  "dial_delay_seconds": 7,
+  "tool_calls": [
+    {
+      "tool": "check_slots",
+      "args": {
+        "date": "@tomorrow",
+        "lead_id": "@lead_id"
+      }
+    },
+    {
+      "tool": "book_slot",
+      "args": {
+        "slot_start": "@tomorrow 11:00",
+        "patient_name": "Ravi Teja",
+        "lead_id": "@lead_id"
+      }
+    }
+  ],
+  "execution": {
+    "status": "completed",
+    "conversation_duration": 96,
+    "telephony_data": {
+      "duration": 98,
+      "recording_url": null,
+      "hosted_telephony": true,
+      "call_type": "outbound",
+      "provider": "plivo",
+      "hangup_by": "Caller",
+      "hangup_reason": "normal_hangup",
+      "hangup_provider_code": null
+    },
+    "transcript": "assistant: {greeting}\nuser: హా చెప్పండి, వీలుంది.\nassistant: ధన్యవాదాలు. మీరు ఏ సమస్య కోసం చూపించుకోవాలనుకుంటున్నారు, లేదా ఏ ట్రీట్మెంట్ కావాలి?\nuser: కింద ఎడమ వైపు పన్ను రెండు రోజులుగా బాగా నొప్పిగా ఉంది.\nassistant: అర్థమైంది. ఇప్పుడు నొప్పి లేదా వాపు ఉందా, లేక ఇది రెగ్యులర్ చెకప్ ఆ?\nuser: వాపు లేదు, కానీ నొప్పి వల్ల రాత్రి నిద్ర పట్టట్లేదు.\nassistant: మీరు ఇంతకు ముందు మా క్లినిక్‌కి వచ్చారా?\nuser: లేదు, ఇదే మొదటిసారి.\nassistant: సరే. మీకు ఏ రోజు వీలవుతుంది?\nuser: రేపు పొద్దున్నే వీలైతే బాగుంటుంది.\nassistant: రేపు మంగళవారం ఉదయం 10 గంటలకు, 10:30 కి, లేదా 11 గంటలకు ఖాళీ ఉంది. ఏది కావాలి?\nuser: 11 గంటలకు బుక్ చేయండి.\nassistant: సరే Ravi గారు, మంగళవారం 20 అక్టోబర్ ఉదయం 11 గంటలకు మీ అపాయింట్‌మెంట్ బుక్ అయింది. WhatsApp లో కన్ఫర్మేషన్ వస్తుంది.\nuser: థాంక్యూ.\nassistant: మీ సమయానికి ధన్యవాదాలు. ఉంటాను.\n",
+    "extracted_data": {
+      "FlowMate Callback": {
+        "Lead Temperature": {
+          "subjective": null,
+          "objective": "hot",
+          "confidence": 0.9,
+          "confidence_label": "High",
+          "reasoning_subjective": null,
+          "reasoning_objective": "The caller booked a time.",
+          "validation": null
+        },
+        "Evidence Quote": {
+          "subjective": "11 గంటలకు బుక్ చేయండి.",
+          "objective": null,
+          "confidence": 0.9,
+          "confidence_label": "High",
+          "reasoning_subjective": "From the caller's answers.",
+          "reasoning_objective": null,
+          "validation": null
+        },
+        "Do Not Call": {
+          "subjective": null,
+          "objective": "no",
+          "confidence": 0.9,
+          "confidence_label": "High",
+          "reasoning_subjective": null,
+          "reasoning_objective": "No such request.",
+          "validation": null
+        },
+        "Concern": {
+          "subjective": "Lower left tooth pain for two days",
+          "objective": null,
+          "confidence": 0.9,
+          "confidence_label": "High",
+          "reasoning_subjective": "From the caller's answers.",
+          "reasoning_objective": null,
+          "validation": null
+        },
+        "Urgency": {
+          "subjective": "Pain, no swelling, cannot sleep at night",
+          "objective": null,
+          "confidence": 0.9,
+          "confidence_label": "High",
+          "reasoning_subjective": "From the caller's answers.",
+          "reasoning_objective": null,
+          "validation": null
+        },
+        "Visited Before": {
+          "subjective": "No, first visit",
+          "objective": null,
+          "confidence": 0.9,
+          "confidence_label": "High",
+          "reasoning_subjective": "From the caller's answers.",
+          "reasoning_objective": null,
+          "validation": null
+        }
+      }
+    }
+  }
+}

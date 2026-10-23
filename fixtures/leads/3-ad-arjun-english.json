@@ -1,0 +1,18 @@
+{
+  "label": "3. Ad lead, English, wants a service not offered (expected COLD)",
+  "endpoint": "/leads/form",
+  "_notice": "FICTIONAL test lead. Name and number are invented; live mode refuses to call fixture numbers.",
+  "body": {
+    "source": "ad",
+    "external_id": "ad-0003",
+    "name": "Arjun Mehta",
+    "phone": "+919000000003",
+    "language": "en",
+    "message": "Whitening before a wedding",
+    "consent": {
+      "given": true,
+      "text": "Neelagiri Dental Studio may call me about this enquiry.",
+      "at": "2026-10-19T10:01:55+05:30"
+    }
+  }
+}

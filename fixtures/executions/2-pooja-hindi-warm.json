@@ -1,0 +1,79 @@
+{
+  "_notice": "FICTIONAL call. Shaped like a Bolna execution payload (execution payload reference, docs read 2026-10-17). {greeting} is replaced by the greeting FlowMate actually sent.",
+  "match_phone": "+919000000002",
+  "dial_delay_seconds": 9,
+  "tool_calls": [],
+  "execution": {
+    "status": "completed",
+    "conversation_duration": 81,
+    "telephony_data": {
+      "duration": 83,
+      "recording_url": null,
+      "hosted_telephony": true,
+      "call_type": "outbound",
+      "provider": "plivo",
+      "hangup_by": "Caller",
+      "hangup_reason": "normal_hangup",
+      "hangup_provider_code": null
+    },
+    "transcript": "assistant: {greeting}\nuser: हाँ बोलिए।\nassistant: आप किस चीज़ के लिए दिखाना चाहते हैं, या कौन सा इलाज करवाना चाहते हैं?\nuser: दाँतों की सफ़ाई करवानी है, उसका कितना लगेगा?\nassistant: स्केलिंग और पॉलिशिंग ₹1,200 है।\nuser: और अगर कैविटी निकली तो फिलिंग का कितना?\nassistant: टूथ-कलर्ड फिलिंग ₹1,500 प्रति दाँत है।\nassistant: क्या अभी दर्द या सूजन है, या यह रूटीन चेक-अप है?\nuser: नहीं, दर्द नहीं है, बस रूटीन है।\nassistant: क्या आप पहले हमारे क्लिनिक आ चुके हैं?\nuser: नहीं।\nassistant: क्या मैं आपके लिए कोई समय बुक कर दूँ?\nuser: अभी नहीं, मैं पति से बात करके बताती हूँ।\nassistant: बिल्कुल। क्या क्लिनिक आपको WhatsApp पर जानकारी भेज सकता है?\nuser: हाँ, भेज दीजिए।\nassistant: आपके समय के लिए धन्यवाद। नमस्ते।\n",
+    "extracted_data": {
+      "FlowMate Callback": {
+        "Lead Temperature": {
+          "subjective": null,
+          "objective": "warm",
+          "confidence": 0.9,
+          "confidence_label": "High",
+          "reasoning_subjective": null,
+          "reasoning_objective": "Interested, wants to discuss with her husband first.",
+          "validation": null
+        },
+        "Evidence Quote": {
+          "subjective": "अभी नहीं, मैं पति से बात करके बताती हूँ।",
+          "objective": null,
+          "confidence": 0.9,
+          "confidence_label": "High",
+          "reasoning_subjective": "From the caller's answers.",
+          "reasoning_objective": null,
+          "validation": null
+        },
+        "Do Not Call": {
+          "subjective": null,
+          "objective": "no",
+          "confidence": 0.9,
+          "confidence_label": "High",
+          "reasoning_subjective": null,
+          "reasoning_objective": "No such request.",
+          "validation": null
+        },
+        "Concern": {
+          "subjective": "Teeth cleaning; asked filling price",
+          "objective": null,
+          "confidence": 0.9,
+          "confidence_label": "High",
+          "reasoning_subjective": "From the caller's answers.",
+          "reasoning_objective": null,
+          "validation": null
+        },
+        "Urgency": {
+          "subjective": "No pain, routine visit",
+          "objective": null,
+          "confidence": 0.9,
+          "confidence_label": "High",
+          "reasoning_subjective": "From the caller's answers.",
+          "reasoning_objective": null,
+          "validation": null
+        },
+        "Visited Before": {
+          "subjective": "No",
+          "objective": null,
+          "confidence": 0.9,
+          "confidence_label": "High",
+          "reasoning_subjective": "From the caller's answers.",
+          "reasoning_objective": null,
+          "validation": null
+        }
+      }
+    }
+  }
+}

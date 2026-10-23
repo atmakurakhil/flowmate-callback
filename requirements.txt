@@ -1,0 +1,8 @@
+# Runtime dependencies, pinned. Licences: FastAPI MIT, Starlette BSD-3, Pydantic MIT,
+# httpx BSD-3, Uvicorn BSD-3. No AGPL (tests/test_security_and_repo.py checks the installed metadata).
+# Tests use the standard library's unittest, so there are no dev dependencies.
+fastapi==0.136.1
+starlette==1.0.0
+pydantic==2.13.4
+httpx==0.28.1
+uvicorn==0.47.0

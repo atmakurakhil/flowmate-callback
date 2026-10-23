@@ -1,0 +1,79 @@
+{
+  "_notice": "FICTIONAL call. Shaped like a Bolna execution payload (execution payload reference, docs read 2026-10-17). {greeting} is replaced by the greeting FlowMate actually sent. Its Evidence Quote is deliberately NOT what the caller said, to show the verifier rejecting it.",
+  "match_phone": "+919000000003",
+  "dial_delay_seconds": 6,
+  "tool_calls": [],
+  "execution": {
+    "status": "completed",
+    "conversation_duration": 38,
+    "telephony_data": {
+      "duration": 40,
+      "recording_url": null,
+      "hosted_telephony": true,
+      "call_type": "outbound",
+      "provider": "plivo",
+      "hangup_by": "Caller",
+      "hangup_reason": "normal_hangup",
+      "hangup_provider_code": null
+    },
+    "transcript": "assistant: {greeting}\nuser: Yeah, quickly.\nassistant: What would you like to get checked or treated?\nuser: I wanted teeth whitening before my sister's wedding.\nassistant: I'm sorry, the clinic does not offer teeth whitening.\nuser: Oh. Then I'm not interested, thanks.\nassistant: Understood. Thank you for your time. Goodbye.\n",
+    "extracted_data": {
+      "FlowMate Callback": {
+        "Lead Temperature": {
+          "subjective": null,
+          "objective": "cold",
+          "confidence": 0.9,
+          "confidence_label": "High",
+          "reasoning_subjective": null,
+          "reasoning_objective": "Wanted a service the clinic does not offer.",
+          "validation": null
+        },
+        "Evidence Quote": {
+          "subjective": "I am not interested in any dental treatment at all.",
+          "objective": null,
+          "confidence": 0.9,
+          "confidence_label": "High",
+          "reasoning_subjective": "From the caller's answers.",
+          "reasoning_objective": null,
+          "validation": null
+        },
+        "Do Not Call": {
+          "subjective": null,
+          "objective": "no",
+          "confidence": 0.9,
+          "confidence_label": "High",
+          "reasoning_subjective": null,
+          "reasoning_objective": "No such request.",
+          "validation": null
+        },
+        "Concern": {
+          "subjective": "Teeth whitening",
+          "objective": null,
+          "confidence": 0.9,
+          "confidence_label": "High",
+          "reasoning_subjective": "From the caller's answers.",
+          "reasoning_objective": null,
+          "validation": null
+        },
+        "Urgency": {
+          "subjective": "",
+          "objective": null,
+          "confidence": 0.9,
+          "confidence_label": "High",
+          "reasoning_subjective": "From the caller's answers.",
+          "reasoning_objective": null,
+          "validation": null
+        },
+        "Visited Before": {
+          "subjective": "",
+          "objective": null,
+          "confidence": 0.9,
+          "confidence_label": "High",
+          "reasoning_subjective": "From the caller's answers.",
+          "reasoning_objective": null,
+          "validation": null
+        }
+      }
+    }
+  }
+}

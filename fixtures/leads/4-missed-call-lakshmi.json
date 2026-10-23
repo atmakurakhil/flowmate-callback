@@ -1,0 +1,13 @@
+{
+  "label": "4. Missed call, no answer on callback (expected NOT REACHED)",
+  "endpoint": "/leads/form",
+  "_notice": "FICTIONAL test lead. Name and number are invented; live mode refuses to call fixture numbers.",
+  "body": {
+    "source": "missed_call",
+    "external_id": "missed-0004",
+    "phone": "09000000004",
+    "consent": {
+      "basis": "called_us"
+    }
+  }
+}

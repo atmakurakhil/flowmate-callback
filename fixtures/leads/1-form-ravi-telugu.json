@@ -1,0 +1,18 @@
+{
+  "label": "1. Website form, Telugu, tooth pain (expected HOT, books a slot)",
+  "endpoint": "/leads/form",
+  "_notice": "FICTIONAL test lead. Name and number are invented; live mode refuses to call fixture numbers.",
+  "body": {
+    "source": "website_form",
+    "external_id": "form-0001",
+    "name": "Ravi Teja",
+    "phone": "90000 00001",
+    "language": "te",
+    "message": "Tooth pain since 2 days, need appointment",
+    "consent": {
+      "given": true,
+      "text": "I agree to get a call back from Neelagiri Dental Studio about my enquiry.",
+      "at": "2026-10-19T10:01:40+05:30"
+    }
+  }
+}

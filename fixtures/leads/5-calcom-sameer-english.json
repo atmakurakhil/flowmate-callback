@@ -1,0 +1,47 @@
+{
+  "label": "5. Cal.com booking, English; the agent quotes a price that is NOT in the profile (expected HOT + audit flag)",
+  "endpoint": "/leads/calcom",
+  "_notice": "FICTIONAL test lead. Name and number are invented; live mode refuses to call fixture numbers.",
+  "body": {
+    "triggerEvent": "BOOKING_CREATED",
+    "createdAt": "2026-10-19T04:31:00.000Z",
+    "payload": {
+      "uid": "fictional-calcom-uid-0005",
+      "title": "Check-up between Neelagiri Dental Studio and Sameer Khan",
+      "startTime": "2026-10-24T11:00:00.000Z",
+      "endTime": "2026-10-24T11:30:00.000Z",
+      "attendees": [
+        {
+          "name": "Sameer Khan",
+          "email": "sameer@example.com",
+          "timeZone": "Asia/Kolkata",
+          "language": {
+            "locale": "en"
+          }
+        }
+      ],
+      "responses": {
+        "name": {
+          "label": "Your name",
+          "value": "Sameer Khan"
+        },
+        "email": {
+          "label": "Email",
+          "value": "sameer@example.com"
+        },
+        "attendeePhoneNumber": {
+          "label": "Phone",
+          "value": "+91 90000 00005"
+        },
+        "notes": {
+          "label": "Notes",
+          "value": "Check-up, I may need a root canal"
+        },
+        "callback_consent": {
+          "label": "Yes, call me back to confirm this booking",
+          "value": true
+        }
+      }
+    }
+  }
+}

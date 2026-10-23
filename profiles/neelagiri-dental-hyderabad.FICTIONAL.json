@@ -1,0 +1,79 @@
+{
+  "fictional": true,
+  "notice": "FICTIONAL SAMPLE. Neelagiri Dental Studio does not exist. The name, address, phone, prices, hours and booking link are invented for the FlowMate Callback demo. Do not use them for a real business.",
+  "business": {
+    "name": "Neelagiri Dental Studio",
+    "name_spoken": {
+      "hi": "नीलगिरि डेंटल स्टूडियो",
+      "te": "నీలగిరి డెంటల్ స్టూడియో"
+    },
+    "city": "Hyderabad",
+    "address": "Demo Lane, Kondapur, Hyderabad (fictional address)",
+    "phone_display": null,
+    "timezone": "Asia/Kolkata"
+  },
+  "languages": ["te", "hi", "en"],
+  "default_language": "te",
+  "hours": {
+    "mon": [["10:00", "13:30"], ["16:30", "20:30"]],
+    "tue": [["10:00", "13:30"], ["16:30", "20:30"]],
+    "wed": [["10:00", "13:30"], ["16:30", "20:30"]],
+    "thu": [["10:00", "13:30"], ["16:30", "20:30"]],
+    "fri": [["10:00", "13:30"], ["16:30", "20:30"]],
+    "sat": [["10:00", "13:30"], ["16:30", "20:30"]],
+    "sun": []
+  },
+  "calling_window": {"start_hour": 9, "end_hour": 21},
+  "services": [
+    {"name": "Check-up and consultation", "price": "₹300"},
+    {"name": "Scaling and polishing (teeth cleaning)", "price": "₹1,200"},
+    {"name": "Tooth-coloured filling", "price": "₹1,500 per tooth"},
+    {"name": "Root canal treatment", "price": null, "price_policy": "The dentist quotes this after examining the tooth at the check-up."},
+    {"name": "Braces and aligners consultation", "price": null, "price_policy": "The price depends on the case; the orthodontist explains it at the consultation."},
+    {"name": "Children's dentistry", "price": null}
+  ],
+  "not_offered": ["Teeth whitening", "Dental implants"],
+  "faq": [
+    {"q": "Is there parking?", "a": "Yes, two-wheeler and car parking in front of the clinic."},
+    {"q": "How can I pay?", "a": "UPI, debit and credit cards, and cash."},
+    {"q": "Do you treat children?", "a": "Yes, children are seen at the regular check-up slots."}
+  ],
+  "booking": {
+    "slot_minutes": 30,
+    "days_ahead": 6,
+    "min_notice_minutes": 60,
+    "link": "https://example.com/neelagiri-dental-fictional/book",
+    "what_to_bring": "Any old X-rays or prescriptions."
+  },
+  "qualifying_questions": [
+    {
+      "id": "concern",
+      "label": "Concern",
+      "text": {
+        "en": "What would you like to get checked or treated?",
+        "hi": "आप किस चीज़ के लिए दिखाना चाहते हैं, या कौन सा इलाज करवाना चाहते हैं?",
+        "te": "మీరు ఏ సమస్య కోసం చూపించుకోవాలనుకుంటున్నారు, లేదా ఏ ట్రీట్మెంట్ కావాలి?"
+      }
+    },
+    {
+      "id": "urgency",
+      "label": "Urgency",
+      "text": {
+        "en": "Is there pain or swelling right now, or is this a routine visit?",
+        "hi": "क्या अभी दर्द या सूजन है, या यह रूटीन चेक-अप है?",
+        "te": "ఇప్పుడు నొప్పి లేదా వాపు ఉందా, లేక ఇది రెగ్యులర్ చెకప్ ఆ?"
+      }
+    },
+    {
+      "id": "visited_before",
+      "label": "Visited Before",
+      "text": {
+        "en": "Have you visited our clinic before?",
+        "hi": "क्या आप पहले हमारे क्लिनिक आ चुके हैं?",
+        "te": "మీరు ఇంతకు ముందు మా క్లినిక్‌కి వచ్చారా?"
+      }
+    }
+  ],
+  "voices": {"en": "ritu", "hi": "priya", "te": "kavya"},
+  "owner_whatsapp": null
+}

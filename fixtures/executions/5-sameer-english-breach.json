@@ -1,0 +1,79 @@
+{
+  "_notice": "FICTIONAL call. Shaped like a Bolna execution payload (execution payload reference, docs read 2026-10-17). {greeting} is replaced by the greeting FlowMate actually sent. The agent line quoting a root canal price is a deliberate guardrail breach, to show the audit catching it.",
+  "match_phone": "+919000000005",
+  "dial_delay_seconds": 10,
+  "tool_calls": [],
+  "execution": {
+    "status": "completed",
+    "conversation_duration": 57,
+    "telephony_data": {
+      "duration": 59,
+      "recording_url": null,
+      "hosted_telephony": true,
+      "call_type": "outbound",
+      "provider": "plivo",
+      "hangup_by": "Caller",
+      "hangup_reason": "normal_hangup",
+      "hangup_provider_code": null
+    },
+    "transcript": "assistant: {greeting}\nuser: Sure, go ahead.\nassistant: What would you like to get checked or treated?\nuser: My dentist said I might need a root canal, how much does that cost here?\nassistant: A root canal is ₹4,000.\nuser: Okay. I'm keeping the Saturday slot I booked, I'll come then.\nassistant: Have you visited our clinic before?\nuser: No, first time.\nassistant: Thank you. See you on Saturday.\n",
+    "extracted_data": {
+      "FlowMate Callback": {
+        "Lead Temperature": {
+          "subjective": null,
+          "objective": "hot",
+          "confidence": 0.9,
+          "confidence_label": "High",
+          "reasoning_subjective": null,
+          "reasoning_objective": "Confirmed the existing booking.",
+          "validation": null
+        },
+        "Evidence Quote": {
+          "subjective": "I'm keeping the Saturday slot I booked, I'll come then.",
+          "objective": null,
+          "confidence": 0.9,
+          "confidence_label": "High",
+          "reasoning_subjective": "From the caller's answers.",
+          "reasoning_objective": null,
+          "validation": null
+        },
+        "Do Not Call": {
+          "subjective": null,
+          "objective": "no",
+          "confidence": 0.9,
+          "confidence_label": "High",
+          "reasoning_subjective": null,
+          "reasoning_objective": "No such request.",
+          "validation": null
+        },
+        "Concern": {
+          "subjective": "Check-up; may need a root canal",
+          "objective": null,
+          "confidence": 0.9,
+          "confidence_label": "High",
+          "reasoning_subjective": "From the caller's answers.",
+          "reasoning_objective": null,
+          "validation": null
+        },
+        "Urgency": {
+          "subjective": "",
+          "objective": null,
+          "confidence": 0.9,
+          "confidence_label": "High",
+          "reasoning_subjective": "From the caller's answers.",
+          "reasoning_objective": null,
+          "validation": null
+        },
+        "Visited Before": {
+          "subjective": "No, first time",
+          "objective": null,
+          "confidence": 0.9,
+          "confidence_label": "High",
+          "reasoning_subjective": "From the caller's answers.",
+          "reasoning_objective": null,
+          "validation": null
+        }
+      }
+    }
+  }
+}

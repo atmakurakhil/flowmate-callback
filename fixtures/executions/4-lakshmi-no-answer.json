@@ -1,0 +1,22 @@
+{
+  "_notice": "FICTIONAL call. Shaped like a Bolna execution payload (execution payload reference, docs read 2026-10-17). {greeting} is replaced by the greeting FlowMate actually sent.",
+  "match_phone": "+919000000004",
+  "dial_delay_seconds": 8,
+  "tool_calls": [],
+  "execution": {
+    "status": "no-answer",
+    "conversation_duration": 0,
+    "transcript": "",
+    "extracted_data": {},
+    "telephony_data": {
+      "duration": 0,
+      "recording_url": null,
+      "hosted_telephony": true,
+      "call_type": "outbound",
+      "provider": "plivo",
+      "hangup_by": "Plivo",
+      "hangup_reason": "no_answer",
+      "hangup_provider_code": null
+    }
+  }
+}

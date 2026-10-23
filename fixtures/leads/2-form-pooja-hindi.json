@@ -1,0 +1,18 @@
+{
+  "label": "2. Website form, Hindi, price question (expected WARM)",
+  "endpoint": "/leads/form",
+  "_notice": "FICTIONAL test lead. Name and number are invented; live mode refuses to call fixture numbers.",
+  "body": {
+    "source": "website_form",
+    "external_id": "form-0002",
+    "name": "Pooja Sharma",
+    "phone": "+91 90000 00002",
+    "language": "hi",
+    "message": "Teeth cleaning price?",
+    "consent": {
+      "given": true,
+      "text": "I agree to get a call back from Neelagiri Dental Studio about my enquiry.",
+      "at": "2026-10-19T10:01:50+05:30"
+    }
+  }
+}
